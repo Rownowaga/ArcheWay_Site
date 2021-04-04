@@ -1,3 +1,4 @@
 *.pubxml
 *.user
 bin
+obj
