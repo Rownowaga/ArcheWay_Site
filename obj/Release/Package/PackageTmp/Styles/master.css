@@ -1,0 +1,18 @@
+﻿body, h1, form {
+    font-family: "Raleway", sans-serif
+}
+
+body, html, form {
+    height: 100%;
+}
+
+#mainNavBar {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.80);
+    position:absolute;
+    z-index:99;
+}
+
+.mainNavItem {
+    background:none;
+}

@@ -1,0 +1,103 @@
+﻿.iconImg {
+    height: 64px;
+    width: 64px;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+    .accordion.active {
+        background-color: #ccc;
+    }
+
+    .accordion::after {
+        content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .accordion.active:after {
+        content: '\2212';
+    }
+
+accordion:hover {
+    background-color: #ccc;
+}
+
+.subCat {
+    padding-left: 15px;
+    display: none;
+}
+
+    .subCat.active {
+    }
+
+.wikiLinks {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.wikiContent {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.catLink {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    text-decoration: none;
+    display: block;
+}
+
+    .catLink:hover {
+        background-color: #ccc;
+    }
+
+.catContent {
+    display: none;
+    padding-left: 35px;
+    padding-right:35px;
+}
+    .catContent table {
+        border:2px solid grey;
+        border-spacing:0px;
+        text-align:center;
+        width:100%;
+    }
+    .catContent tr:nth-child(odd) {
+        background-color:lightgrey;
+    }
+    .catContent th {
+        border:1px solid black;
+    }
+    .catContent td {
+        border: 1px solid black;
+    }
+
+    #body_mainTable {
+        width: 100%;
+        height: 100%;
+        padding-top: 35px;
+        position: fixed;
+        overflow-y: scroll;
+    }

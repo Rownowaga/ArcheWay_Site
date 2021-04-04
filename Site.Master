@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ArcheWay_Site.Site" %>
+
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%=Page.Title %> | ArcheWay</title>
+    
+    <link rel="shortcut icon" type="image/x-icon" href="Images/aa.png" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Styles/master.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="MasterForm" runat="server">
+        <div id="mainNavBar" class="w3-bar">
+            <asp:HyperLink runat="server" CssClass="mainNavItem w3-bar-item w3-button" NavigateUrl="~/Default.aspx" Text="Home"></asp:HyperLink>
+            <asp:HyperLink runat="server" CssClass="mainNavItem w3-bar-item w3-button" NavigateUrl="https://discord.gg/J39qgf3Ncu" Target="_blank" Text="Discord"></asp:HyperLink>
+            <asp:HyperLink runat="server" CssClass="mainNavItem w3-bar-item w3-button" NavigateUrl="~/Wiki.aspx" Text="Wiki"></asp:HyperLink>
+        </div>
+        <asp:ContentPlaceHolder ID="body" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
