@@ -76,28 +76,74 @@ accordion:hover {
 .catContent {
     display: none;
     padding-left: 35px;
-    padding-right:35px;
+    padding-right: 35px;
 }
+
     .catContent table {
-        border:2px solid grey;
-        border-spacing:0px;
-        text-align:center;
-        width:100%;
+        border: 2px solid grey;
+        border-spacing: 0px;
+        text-align: center;
+        width: 100%;
     }
+
     .catContent tr:nth-child(odd) {
-        background-color:lightgrey;
+        background-color: lightgrey;
     }
+
     .catContent th {
-        border:1px solid black;
+        border: 1px solid black;
     }
+
     .catContent td {
         border: 1px solid black;
     }
 
-    #body_mainTable {
-        width: 100%;
-        height: 100%;
-        padding-top: 35px;
-        position: fixed;
-        overflow-y: scroll;
+/* Style the tab */
+.tab {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    border:1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+    /* Style the buttons that are used to open the tab content */
+    .tab li {
+        float: left;
+        transition: 0.3s;
     }
+        .tab li a {
+            display:inline-block;
+            color:black;
+            text-align:center;
+            padding:14px 16px;
+            text-decoration:none;
+            font-size:17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab li:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab li.active {
+            background-color: #ccc;
+        }
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+#body_mainTable {
+    width: 100%;
+    height: 100%;
+    padding-top: 35px;
+    position: fixed;
+    overflow-y: scroll;
+}

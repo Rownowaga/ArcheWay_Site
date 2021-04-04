@@ -83,7 +83,8 @@
             e.preventDefault();
 
             var href = $(this).attr("href");
-            $("#contentHeader").text($(this).text());
+            var contentHeader = $("#contentHeader").text();
+            $("#contentHeader").text(contentHeader + " ➣ "  + $(this).text());
             $(".catContent").fadeOut().promise().done(function () {
                 $(href).fadeIn();
                 $(".wikiContent").animate({
@@ -101,5 +102,13 @@
                     $(this).css("color", "blue");
             });
         }
+
+        $(".tablinks").click(function () {
+
+            var href = $(this).attr("href");
+            $(".tabcontent").fadeOut().promise().done(function () {
+                $(href).fadeIn();
+            });
+        });
     </script>
 </asp:Content>

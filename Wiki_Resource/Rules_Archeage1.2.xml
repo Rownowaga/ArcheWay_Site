@@ -762,6 +762,106 @@
         <chunk name="sent" type="d"/>
       </packet>
     </s2c>
+    <c2s>
+       <packet type="0x01" level="0x02" name="FinishState" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+        <chunk name="state" type="d"/>
+      </packet>
+      <packet type="0x02" level="0x02" name="FlushMsgs" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x04" level="0x02" name="UpdatePhysicsTime" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+        <chunk name="tm" type="q"/>
+      </packet>
+      <packet type="0x05" level="0x02" name="BeginUpdateObj" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x06" level="0x02" name="EndUpdateObj" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x07" level="0x02" name="BeginBindObj" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x08" level="0x02" name="EndBindObj" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x09" level="0x02" name="UnbindPredictedObj" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x0a" level="0x02" name="RemoveStaticObj" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x0b" level="0x02" name="VoiceData" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x0c" level="0x02" name="UpdateAspect" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x0d" level="0x02" name="SetAspectProfile" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x0e" level="0x02" name="PartialAspect" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+      </packet>
+      <packet type="0x10" level="0x02" name="ChangeCVar" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+        <chunk id="0" name="key_len" type="w"/>
+        <chunk name="key" sizeid="0" type="b"/>
+        <chunk id="1" name="value_len" type="w"/>
+        <chunk name="value" sizeid="1" type="b"/>
+      </packet>
+      <packet type="0x11" level="0x02" name="EntityClassRegistration" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+        <chunk name="id" type="w"/>
+        <chunk id="0" name="nameLen" type="w"/>
+        <chunk type="t" name="name" arg="#nameLen"/>
+      </packet>
+      <packet type="0x12" level="0x02" name="Ping" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+        <chunk name="tm" type="q"/>
+        <chunk name="when" type="q"/>
+        <chunk name="local" type="d"/>
+      </packet>
+      <packet type="0x15" level="0x02" name="FastPing" description="">
+        <chunk type="w" name="pSize"/>
+        <chunk type="w" name="pLevel"/>
+        <chunk type="w" name="pType"/>
+        <chunk name="sent" type="d"/>
+      </packet>
+    </c2s>
   </rule>
   <rule>
     <server port="Game"/>
@@ -8444,105 +8544,6 @@
       </ifeq>
 
       <makepacket size="p_size" dir="p_dir" level="p_level" hash="p_hash" type="p_type" data="p_arr"/>
-      <!-- 		PROXY Packets	crynetwork.dll	-->
-      <packet type="0x01" level="0x02" name="FinishState" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-        <chunk name="state" type="d"/>
-      </packet>
-      <packet type="0x02" level="0x02" name="FlushMsgs" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x04" level="0x02" name="UpdatePhysicsTime" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-        <chunk name="tm" type="q"/>
-      </packet>
-      <packet type="0x05" level="0x02" name="BeginUpdateObj" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x06" level="0x02" name="EndUpdateObj" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x07" level="0x02" name="BeginBindObj" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x08" level="0x02" name="EndBindObj" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x09" level="0x02" name="UnbindPredictedObj" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x0a" level="0x02" name="RemoveStaticObj" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x0b" level="0x02" name="VoiceData" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x0c" level="0x02" name="UpdateAspect" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x0d" level="0x02" name="SetAspectProfile" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x0e" level="0x02" name="PartialAspect" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-      </packet>
-      <packet type="0x10" level="0x02" name="ChangeCVar" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-        <chunk id="0" name="key_len" type="w"/>
-        <chunk name="key" sizeid="0" type="b"/>
-        <chunk id="1" name="value_len" type="w"/>
-        <chunk name="value" sizeid="1" type="b"/>
-      </packet>
-      <packet type="0x11" level="0x02" name="EntityClassRegistration" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-        <chunk name="id" type="w"/>
-        <chunk id="0" name="nameLen" type="w"/>
-        <chunk type="t" name="name" arg="#nameLen"/>
-      </packet>
-      <packet type="0x12" level="0x02" name="Ping" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-        <chunk name="tm" type="q"/>
-        <chunk name="when" type="q"/>
-        <chunk name="local" type="d"/>
-      </packet>
-      <packet type="0x15" level="0x02" name="FastPing" description="">
-        <chunk type="w" name="pSize"/>
-        <chunk type="w" name="pLevel"/>
-        <chunk type="w" name="pType"/>
-        <chunk name="sent" type="d"/>
-      </packet>
       <!-- 		Client to Server packets	x2game.dll	-->
       <packet type="0x00" level="0x01" name="X2EnterWorld" description="">
         <chunk type="w" name="pSize"/>

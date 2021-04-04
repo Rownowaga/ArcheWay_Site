@@ -64,7 +64,7 @@ namespace ArcheWay_Site
 
                         //Table Headers
                         foreach (XAttribute attr in temp.Attributes())
-                            packetTables.AppendLine("<th>" + attr.Name.LocalName + "</th>");
+                            packetTables.AppendLine("<th>" + attr.Name.LocalName.ToUpper() + "</th>");
                         packetTables.AppendLine("</tr>");
 
                         //Table Content
@@ -75,7 +75,7 @@ namespace ArcheWay_Site
                             foreach (XAttribute attr in packet.Attributes())
                             {
                                 if (attr.Name.LocalName == "name")
-                                    packetTables.AppendLine("<td><a class=\"contentLink\" href=" + string.Concat("#", attr.Value) + ">"+attr.Value+"</a></td>"); //Hyperlinks for going to a more specific page
+                                    packetTables.AppendLine("<td><a class=\"contentLink\" href=" + string.Concat("#", attr.Value) + ">" + attr.Value + "</a></td>"); //Hyperlinks for going to a more specific page
                                 else
                                     packetTables.AppendLine("<td>" + attr.Value + "</td>");
                             }
@@ -92,22 +92,52 @@ namespace ArcheWay_Site
 
                 #region Load all Packet Contents
                 IEnumerable<XElement> packets = rule.Descendants("packet");
-                foreach(XElement packet in packets)
+                foreach (XElement packet in packets)
                 {
-                    packetContent.AppendLine("<div class=\"catContent\"  id=\"" + packet.Attribute("name").Value + "\">");
-                    foreach (XElement chunk in packet.Elements())
+                    IEnumerable<XElement> chunks = packet.Elements("chunk");
+                    string packetName = packet.Attribute("name").Value;
+                    packetContent.AppendLine("<div style=\"width:50%;\" class=\"catContent\"  id=\"" + packet.Attribute("name").Value + "\">");
+
+                    packetContent.AppendLine("<ul class=\"tab\">");
+                    packetContent.AppendLine("<li><a class=\"tablinks\" href=\"#" + packetName + "Table\">Table</a></li>");
+                    packetContent.AppendLine("<li><a class=\"tablinks\" href=\"#" + packetName + "C\">C#</a></li>");
+                    packetContent.AppendLine("<li><a class=\"tablinks\" href=\"#" + packetName + "Java\">Java</a></li>");
+                    packetContent.AppendLine("</ul>");
+
+
+                    #region Table Tab
+                    XElement tempChunk = (XElement)packet.FirstNode;
+                    if (tempChunk != null)
                     {
-                        var chunkName = chunk.Attribute("name");
-                        var chunkType = chunk.Attribute("type");
+                        packetContent.AppendLine("<div id=\"" + packetName + "Table\" class=\"tabcontent\">");
+                        packetContent.AppendLine("<table>");
 
-                        if (chunkName != null)
+                        //Table Header
+                        packetContent.AppendLine("<tr>");
+                        foreach (XAttribute attr in tempChunk.Attributes())
+                            packetContent.AppendLine("<th>" + attr.Name.LocalName.ToUpper() + "</th>");
+                        packetContent.AppendLine("</tr>");
+
+                        //Table Data
+                        foreach (XElement chunk in chunks)
                         {
-                            packetContent.AppendLine("<code>");
-                            packetContent.AppendLine(chunkName.Value + " : " + chunkType.Value);
-                            packetContent.AppendLine("</code><br />");
+                            packetContent.AppendLine("<tr>");
+                            packetContent.AppendLine("<td>"+ chunk.Attribute("type").Value +"</td>");
+                            packetContent.AppendLine("<td>" + chunk.Attribute("name").Value + "</td>");
+                            packetContent.AppendLine("<tr>");
                         }
-
+                        packetContent.AppendLine("</table>");
+                        packetContent.AppendLine("</div>");
                     }
+                    #endregion
+
+                    #region C# Tab
+                    //TODO
+                    #endregion
+
+                    #region Java Tab
+                    //TODO
+                    #endregion
                     packetContent.AppendLine("</div>");
                 }
                 #endregion
